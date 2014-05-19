@@ -1,0 +1,475 @@
+/*
+Theme Name: Terminal
+Theme URI: http://samglover.net/theme/
+Description: A *nix-style theme for WordPress
+Author: Sam Glover
+Author URI: http://samglover.net
+Version: [see README.md for version history]
+
+License: GNU General Public License [see COPYING.txt for license terms]
+*/
+
+
+/*----------------------------------------
+INDEX
+
+Resets
+Layout
+Typography
+Images
+Header
+Content
+	404 Page
+Comments
+Comment Form
+Footer
+Useful Stuff
+Media Queries
+
+----------------------------------------*/
+
+
+/*----------------------------------------
+Resets
+----------------------------------------*/
+
+div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline;
+}
+
+
+/*----------------------------------------
+Layout
+----------------------------------------*/
+
+html {
+	font-size:62.5%;
+}
+
+body {
+	margin:0 auto;
+	max-width:80rem;
+	padding:1rem;
+}
+
+	#header {
+		border-bottom:.1rem dashed #ddd;
+		margin-bottom:2.7rem;
+	}
+
+		#title {
+			margin-bottom:1.35rem;
+		}
+
+		#header ul.menu {
+			display:block;
+			margin:0 0 2.7rem 0;
+		}
+
+	#content {
+	}
+
+		.comment_link {
+			margin-bottom:2.7rem;
+		}
+
+		.post {
+			border-bottom:.1rem dashed #ddd;
+			margin-bottom:2.7rem;
+		}
+
+		#comments {
+			margin-bottom:2.7rem;
+		}
+
+	#pagenav {
+		border-bottom:.1rem dashed #ddd;
+		margin-bottom:2.7rem;
+	}
+
+	#footer {
+		margin-bottom:2.7rem;
+	}
+
+
+/*----------------------------------------
+Typography
+----------------------------------------*/
+
+body {
+	background:#222;
+	color:#ddd;
+	font-family:'Source Code Pro',monospace;
+	font-size:1.6rem;
+	font-weight:300;
+	line-height:1em;
+}
+
+a,
+a:visited {
+	color:#bfff00;
+	text-decoration:none;
+}
+
+a:hover,
+a:focus {
+	color:#ffea00;
+	text-decoration:underline;
+}
+
+blockquote {
+	border-left:1px dashed #eee;
+	color:#bbb;
+	margin-bottom:2.7rem;
+	padding-left:1.9rem;
+}
+
+code {
+	color:#bbb;
+}
+
+em,i,
+strong,b,bold {
+	font-style:normal;
+	font-weight:600;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color:#bbb;
+}
+
+h1,
+h2 {
+	font-size:3.2rem;
+	line-height:4.4rem;
+	margin-bottom:.6rem;
+}
+
+h3 {
+	font-size:2.2rem;
+	line-height:3.2rem;
+	margin-bottom:1.8rem;
+}
+
+h4 {
+	font-size:1.8rem;
+	line-height:2.7rem;
+	margin-bottom:1.4rem;
+}
+
+h5 {
+	font-size:1.8rem;
+	line-height:2.7rem;
+	margin-bottom:1.4rem;
+}
+
+h6 {
+	font-size:1.4rem;
+	line-height:2.4rem;
+	margin-bottom:1.2rem;
+}
+
+hr {
+	border:dashed #ddd;
+	border-width:1px 0 0;
+	clear:both;
+	height:0;
+	margin-bottom:2.7rem;
+}
+
+p {
+	line-height:2.7rem;
+	margin-bottom:2.7rem;
+}
+
+p.note:before {
+	content:'# ';
+}
+
+small {
+	font-size:1.2rem;
+}
+
+ol,
+ul {
+	margin-bottom:2.7rem;
+	margin-left:2rem;
+}
+
+li {
+	margin-bottom:1.4rem;
+}
+
+
+/*------------------------------
+Images
+------------------------------*/
+
+img.aligncenter {
+	clear:both;
+	display:block;
+	margin:0 auto 2.7rem auto;
+}
+
+img.alignleft {
+	float:left;
+	margin:0 1.4rem 2.7rem 0;
+}
+
+img.alignright {
+	float:right;
+	margin:0 0 1.4rem 2rem;
+}
+
+img.size-thumbnail {
+	height:auto;
+	width:23.4375%;
+}
+
+img.size-medium {
+	height:auto;
+	width:46.875%;
+}
+
+img.size-large {
+	height:auto;
+	width:100%;
+}
+
+img.size-full {
+	height:auto;
+	width:auto;
+}
+
+a.post img.wp-post-image.attachment-thumbnail {
+	float:right;
+	height:auto;
+	margin:0 0 2.7rem 2rem;
+	width:23.4375%;
+}
+
+img.wp-post-image.attachment-medium {
+	float:right;
+	height:auto;
+	margin:0 0 2.7rem 2rem;
+	width:46.875%;
+}
+
+img.wp-post-image.attachment-large {
+	clear:both;
+	height:auto;
+	margin:0 auto 2.7rem auto !important;
+	width:100%;
+}
+
+
+/*----------------------------------------
+Header
+----------------------------------------*/
+
+#title {
+	font-size:3.2rem;
+	font-weight:normal;
+	line-height:1em;
+}
+
+	#title a {
+		color:#ddd;
+	}
+
+	#title a:hover {
+		text-decoration:none;
+	}
+
+#header ul.menu {
+	list-style:none;
+}
+
+#header ul.menu > li {
+	display:inline;
+	margin:0;
+}
+
+
+/*----------------------------------------
+Content
+----------------------------------------*/
+
+h1.headline,
+h2.headline {
+	font-weight:normal;
+}
+
+
+	/*----------------------------------------
+	404 Page
+	----------------------------------------*/
+
+    .error404 .headline {
+    	display:block;
+    }
+
+		.error404 .headline h1 {
+			font-size:20rem;
+			line-height:1em;
+			text-align:center;
+		}
+
+	.error404 input.search-field {
+		font-size:1.6rem;
+		margin-bottom:2.6rem;
+		width:75%;
+	}
+
+	.error404 .screen-reader-text,
+	.error404 input.search-submit {
+		display:none;
+	}
+
+	.error404 .tag_cloud {
+		margin-bottom:6rem;
+	}
+
+
+/*----------------------------------------
+Comments
+----------------------------------------*/
+
+.comment-body {
+	display:block;
+	margin-bottom:2.7rem;
+}
+
+	.comment-body p:last-of-type {
+		margin-bottom:0;
+	}
+
+.comment-meta,
+.reply {
+	font-size:1.2rem;
+}
+
+	.comment-meta a:before,
+	.reply a:before; {
+		content:'# ';
+	}
+
+ol.commentlist {
+	list-style:none;
+	margin:0;
+}
+
+	ol.commentlist li {
+		line-height:2.7rem;
+	}
+
+ul.children {
+	list-style:none;
+	margin:0 0 0 1em;
+}
+
+
+/*----------------------------------------
+Comment Form
+----------------------------------------*/
+
+#commentform {
+	border-bottom:1px dashed #ddd;
+	margin-bottom:2.7rem;
+	padding-bottom:2.7rem;
+}
+
+#commentform input,
+#commentform textarea {
+	background:none;
+	border:none;
+	border-bottom:1px dashed #ddd;
+	color:#ddd;
+	display:block;
+	font-family:'Source Code Pro',monospace;
+	font-size:1.6rem;
+	line-height:2.7rem;
+	margin-bottom:1.35rem;
+	outline:none;
+	padding:0;
+}
+
+#commentform input {
+	width:37.5%;
+}
+
+#commentform input#submit {
+	background:none;
+	border:none;
+	color:#bfff00;
+	padding:0;
+	text-align:left;
+	width:auto;
+}
+
+#commentform input#submit:hover,
+#commentform input#submit:focus {
+	color:#ffea00;
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#commentform textarea {
+	height:21.6rem;
+	width:50%;
+}
+
+
+/*----------------------------------------
+Pagenav
+----------------------------------------*/
+
+
+/*----------------------------------------
+Footer
+----------------------------------------*/
+
+#footer {
+	line-height:2.7rem;
+}
+
+#footer p.right {
+	text-align:right;
+}
+
+
+/*----------------------------------------
+Useful Stuff
+----------------------------------------*/
+
+.alignleft {
+	float:left;
+}
+
+.alignright {
+	float:right;
+}
+
+.clear {
+	clear:both;
+}
+
+
+/*----------------------------------------
+Media Queries
+----------------------------------------*/
+
+@media only screen
+and (max-width:419px) {
+
+	#commentform input,
+	#commentform textarea {
+		width:100%;
+	}
+
+}
