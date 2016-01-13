@@ -7,16 +7,7 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?> RSS feed" href="http://feeds.feedburner.com/samglover">
 </head>
 
-<title>
-<?php /* Title tags */
-	if ( is_front_page() || is_home() ) { bloginfo('name'); }
-	elseif ( is_single() || is_page() ) { the_title(); }
-	elseif ( is_author() ) { global $wp_query; $author_name = get_the_author_meta('display_name',$author); echo $author_name; }
-	elseif ( is_category() ) { single_cat_title(); }
-	elseif ( is_tag() ) { single_tag_title(); }
-  elseif ( is_404() ) { echo '404: Not Found'; }
-?>
-</title>
+<title><?php wp_title(); ?></title>
 
 <meta charset="utf-8" />
 
@@ -60,8 +51,23 @@
 				<?php } ?>
 
 				<div class="post_body">
-					<?php the_content('read more //&#45;&#45;>'); ?>
-					<?php wp_link_pages(); ?>
+
+					<?php
+
+					if ( has_excerpt() ) {
+						echo '<p>' . get_the_excerpt() . '</p>';
+					} else {
+						the_content('read more //&#45;&#45;>');
+					}
+
+					if ( is_single() ) {
+						wp_link_pages();
+					}
+
+					?>
+
+					<div class="clear"></div>
+
 				</div><!--end .post_body-->
 
 			</div><!--end post-->
@@ -76,13 +82,23 @@
 
 
 	<div id="pagenav">
-		<?php if ( is_single() ) { ?>
-				<?php next_post_link('%link','<p>next post: "%title"</p>',0);
-				previous_post_link('%link','<p>previous post: "%title"</p>',0); ?>
-		<?php } elseif ( !is_page() ) { ?>
-				<?php previous_posts_link('<p><&#45;&#45;// newer posts</p>',0);
-				next_posts_link('<p>older posts //&#45;&#45;></p>',0); ?>
-		<?php } ?>
+
+		<?php
+
+		if ( is_single() ) {
+
+				next_post_link('%link','<p>next post: "%title"</p>',0);
+				previous_post_link('%link','<p>previous post: "%title"</p>',0);
+
+		} elseif ( !is_page() ) {
+
+				previous_posts_link('<p><&#45;&#45;// newer posts</p>',0);
+				next_posts_link('<p>older posts //&#45;&#45;></p>',0);
+
+		}
+
+		?>
+
 	</div><!--end #pagenav-->
 
 
@@ -91,8 +107,7 @@
 		<p class="license">The original content in this website is licensed <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</p>
 
     <p class="right remove_bottom"><small>
-    	<a href="http://feedburner.google.com/fb/a/mailverify?uri=samglover&amp;loc=en_US" title="Get posts by email">Email</a>
-		/ <a href="http://feeds.feedburner.com/samglover" title="Subscribe with RSS">RSS</a>
+			Subscribe: <a href="http://feedburner.google.com/fb/a/mailverify?uri=samglover&amp;loc=en_US" title="Get posts by email">Email</a> / <a href="<?php home_url(); ?>/feed/" title="Subscribe with RSS">RSS</a>
     </small></p>
 
 	</div>

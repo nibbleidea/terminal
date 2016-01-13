@@ -25,7 +25,7 @@ $comment_form_args = array(
     'email'  => '<input id="email" name="email" type="text" placeholder="Email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' />'
     )
   ),
-  'comment_field'         => '<textarea id="comment" name="comment" placeholder="Comment" aria-required="true"></textarea>',
+  'comment_field'         => '<textarea id="comment" name="comment" placeholder="Type your comment here." aria-required="true"></textarea>',
   'cancel_reply_link'     => '# Cancel Reply',
   'label_submit'          => 'Submit'
 );
